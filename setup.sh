@@ -22,8 +22,8 @@ sudo pacman -Syu --noconfirm
 echo "Hoàn tất."
 
 # Cài đặt các gói cần thiết
-echo "Cài đặt các gói: Hyprland, Neovim, Foot, Wofi, Waybar, Zsh..."
-sudo pacman -S --needed --noconfirm hyprland neovim kitty zsh brightnessctl swaybg wl-clipboard otf-comicshanns-nerd noto-fonts-cjk thunar thunar-archive-plugin grim slurp xdg-desktop-portal-hyprland
+echo "Cài đặt các gói: Hyprland, ..."
+sudo pacman -S --needed --noconfirm hyprland kitty brightnessctl swaybg wl-clipboard otf-comicshanns-nerd noto-fonts-cjk thunar thunar-archive-plugin grim slurp xdg-desktop-portal-hyprland
 
 # Clone và cài đặt `yay` nếu chưa tồn tại
 if [ ! -d "yay" ]; then
@@ -40,7 +40,7 @@ cp -n "$SCRIPT_DIR/.zshrc" $HOME/
 
 # Cài đặt Google Chrome qua yay
 echo "Cài đặt quickshell ..."
-yay -S --noconfirm quickshell-git sysstat
+yay -S --noconfirm quickshell-git sysstat adwaita-icon-theme
 
 echo "con config quickshell"
 git clone https://github.com/mailong2401/cartoon-bar.git ~/.config/quickshell/cartoon-bar
