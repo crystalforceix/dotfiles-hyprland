@@ -23,7 +23,7 @@ echo "Hoàn tất."
 
 # Cài đặt các gói cần thiết
 echo "Cài đặt các gói: Hyprland, ..."
-sudo pacman -S --needed --noconfirm hyprland kitty brightnessctl swaybg wl-clipboard otf-comicshanns-nerd noto-fonts-cjk thunar thunar-archive-plugin grim slurp xdg-desktop-portal-hyprland
+sudo pacman -S --needed --noconfirm hyprland wofi kitty brightnessctl swaybg wl-clipboard otf-comicshanns-nerd noto-fonts-cjk thunar thunar-archive-plugin grim slurp xdg-desktop-portal-hyprland
 
 # Clone và cài đặt `yay` nếu chưa tồn tại
 if [ ! -d "yay" ]; then
