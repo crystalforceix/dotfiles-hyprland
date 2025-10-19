@@ -7,10 +7,10 @@
 # Lấy thư mục chứa script
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
-# Sao chép các file cấu hình
+# Sao chép các file cấu hình (không ghi đè nếu đã tồn tại)
 echo "Đang sao chép file cấu hình cá nhân..."
-cp -rf "$SCRIPT_DIR/.config" $HOME/
-cp -rf "$SCRIPT_DIR/Pictures" $HOME/
+cp -rn "$SCRIPT_DIR/.config" $HOME/
+cp -rn "$SCRIPT_DIR/Pictures" $HOME/
 echo "Hoàn tất sao chép."
 
 cd $HOME
@@ -25,18 +25,6 @@ echo "Hoàn tất."
 echo "Cài đặt các gói: Hyprland, Neovim, Foot, Wofi, Waybar, Zsh..."
 sudo pacman -S --needed --noconfirm hyprland neovim kitty zsh brightnessctl swaybg wl-clipboard otf-comicshanns-nerd noto-fonts-cjk thunar thunar-archive-plugin grim slurp xdg-desktop-portal-hyprland
 
-sudo systemctl enable iwd.service
-sudo systemctl start iwd.service
-
-echo "Tạo file blacklist nouveau..."
-sudo bash -c 'cat > /etc/modprobe.d/blacklist-nouveau.conf << EOF
-blacklist nouveau
-options nouveau modeset=0
-EOF'
-
-echo "Tạo lại initramfs..."
-sudo mkinitcpio -P
-
 # Clone và cài đặt `yay` nếu chưa tồn tại
 if [ ! -d "yay" ]; then
   echo "Cloning yay..."
@@ -48,11 +36,14 @@ echo "Đang build và cài đặt yay..."
 makepkg -si --noconfirm
 cd ..
 
-cp -rf "$SCRIPT_DIR/.zshrc" $HOME/
+cp -n "$SCRIPT_DIR/.zshrc" $HOME/
 
 # Cài đặt Google Chrome qua yay
-echo "Cài đặt Google Chrome..."
-yay -S --noconfirm quickshell-git
+echo "Cài đặt quickshell ..."
+yay -S --noconfirm quickshell-git sysstat
+
+echo "con config quickshell"
+git clone https://github.com/mailong2401/cartoon-bar.git ~/.config/quickshell/cartoon-bar
 
 # 🛠️ Cleanup sau khi cài đặt
 echo "Dọn dẹp sau khi cài đặt..."
