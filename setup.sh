@@ -40,7 +40,7 @@ cp -n "$SCRIPT_DIR/.zshrc" $HOME/
 
 # Cài đặt Google Chrome qua yay
 echo "Cài đặt quickshell ..."
-yay -S --noconfirm quickshell-git sysstat adwaita-icon-theme
+yay -S --noconfirm quickshell sysstat adwaita-icon-theme
 
 echo "con config quickshell"
 git clone https://github.com/mailong2401/cartoon-bar.git ~/.config/quickshell/cartoon-bar
