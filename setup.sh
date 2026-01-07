@@ -40,7 +40,7 @@ cp -n "$SCRIPT_DIR/.zshrc" $HOME/
 
 # Cài đặt Quickshell, Icon, Font
 echo "Cài đặt quickshell, Icon, Font"
-yay -S --noconfirm quickshell-git sysstat papirus-icon-theme otf-comicshanns-nerd swww cava
+yay -S --noconfirm quickshell-git sysstat papirus-icon-theme otf-comicshanns-nerd swww cava mpvpaper
 
 echo "con config quickshell"
 git clone https://github.com/mailong2401/cartoon-bar.git ~/.config/quickshell/cartoon-bar
