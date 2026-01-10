@@ -43,7 +43,7 @@ echo "Cài đặt quickshell, Icon, Font"
 yay -S --noconfirm quickshell-git sysstat papirus-icon-theme otf-comicshanns-nerd swww cava mpvpaper
 
 echo "con config quickshell"
-git clone https://github.com/mailong2401/cartoon-bar.git ~/.config/quickshell/cartoon-bar
+git clone https://github.com/mailong2401/cartoon-shell.git ~/.config/quickshell/cartoon-shell
 
 # 🛠️ Cleanup sau khi cài đặt
 echo "Dọn dẹp sau khi cài đặt..."
