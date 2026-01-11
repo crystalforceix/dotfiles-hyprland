@@ -9,8 +9,8 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 
 # Sao chép các file cấu hình (không ghi đè nếu đã tồn tại)
 echo "Đang sao chép file cấu hình cá nhân..."
-cp -rn "$SCRIPT_DIR/.config" $HOME/
-cp -rn "$SCRIPT_DIR/Pictures" $HOME/
+cp -rf "$SCRIPT_DIR/.config" $HOME/
+cp -rf "$SCRIPT_DIR/Pictures" $HOME/
 echo "Hoàn tất sao chép."
 
 cd $HOME
