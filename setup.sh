@@ -23,7 +23,7 @@ echo "Hoàn tất."
 
 # Cài đặt các gói cần thiết
 echo "Cài đặt các gói: Hyprland, ..."
-sudo pacman -S --needed --noconfirm hyprland playerctl kitty brightnessctl swaybg wl-clipboard noto-fonts-cjk thunar thunar-archive-plugin grim slurp xdg-desktop-portal-hyprland dunst
+sudo pacman -S --needed --noconfirm hyprland playerctl kitty brightnessctl swaybg wl-clipboard noto-fonts-cjk thunar thunar-archive-plugin grim slurp xdg-desktop-portal-hyprland dunst hyprpaper
 
 # Clone và cài đặt `yay` nếu chưa tồn tại
 if [ ! -d "yay" ]; then
@@ -40,7 +40,7 @@ cp -n "$SCRIPT_DIR/.zshrc" $HOME/
 
 # Cài đặt Quickshell, Icon, Font
 echo "Cài đặt quickshell, Icon, Font"
-yay -S --noconfirm quickshell-git sysstat papirus-icon-theme otf-comicshanns-nerd swww cava mpvpaper
+yay -S --noconfirm quickshell-git sysstat papirus-icon-theme otf-comicshanns-nerd cava mpvpaper
 
 echo "con config quickshell"
 git clone https://github.com/mailong2401/cartoon-shell.git ~/.config/quickshell/cartoon-shell
