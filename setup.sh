@@ -36,8 +36,6 @@ echo "Đang build và cài đặt yay..."
 makepkg -si --noconfirm
 cd ..
 
-cp -n "$SCRIPT_DIR/.zshrc" $HOME/
-
 # Cài đặt Quickshell, Icon, Font
 echo "Cài đặt quickshell, Icon, Font"
 yay -S --noconfirm quickshell-git sysstat papirus-icon-theme otf-comicshanns-nerd cava mpvpaper
