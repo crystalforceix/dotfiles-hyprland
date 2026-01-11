@@ -83,7 +83,8 @@ sudo pacman -S --needed --noconfirm \
     slurp \
     xdg-desktop-portal-hyprland \
     dunst \
-    hyprpaper
+    hyprpaper \
+    jq
 
 # Check and install yay
 if command -v yay &> /dev/null; then
