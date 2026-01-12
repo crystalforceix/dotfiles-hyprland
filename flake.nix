@@ -14,20 +14,18 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations = {
-        # Replace "yourUsername" with your actual username
-        yourUsername = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
 
-          modules = [
-            hyprland.homeManagerModules.default
-            {
-              home = {
-                username = "yourUsername";
-                homeDirectory = "/home/yourUsername";
-                stateVersion = "24.05";
+      # Helper function to create config for any user
+      mkHomeConfiguration = username: home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [
+          hyprland.homeManagerModules.default
+          {
+            home = {
+              inherit username;
+              homeDirectory = "/home/${username}";
+              stateVersion = "24.05";
 
                 packages = with pkgs; [
                   # Hyprland ecosystem
@@ -71,36 +69,26 @@
 
                   # Multimedia
                   ffmpeg
-                  kdialog
+                  libsForQt5.kdialog
                   xdg-user-dirs
 
                   # Additional tools
                   git
                 ];
 
-                # Symlink dotfiles
-                file = {
-                  ".config/hypr" = {
-                    source = ./.config/hypr;
-                    recursive = true;
-                  };
-                  ".config/kitty" = {
-                    source = ./.config/kitty;
-                    recursive = true;
-                  };
-                  ".config/dunst" = {
-                    source = ./.config/dunst;
-                    recursive = true;
-                  };
-                  ".config/quickshell" = {
-                    source = ./.config/quickshell;
-                    recursive = true;
-                  };
-                  "Pictures" = {
-                    source = ./Pictures;
-                    recursive = true;
-                  };
-                };
+                # Symlink dotfiles (only if directories exist)
+                file =
+                  let
+                    linkIfExists = path: target:
+                      if builtins.pathExists path
+                      then { ${target} = { source = path; recursive = true; }; }
+                      else {};
+                  in
+                  (linkIfExists ./.config/hypr ".config/hypr") //
+                  (linkIfExists ./.config/kitty ".config/kitty") //
+                  (linkIfExists ./.config/dunst ".config/dunst") //
+                  (linkIfExists ./.config/quickshell ".config/quickshell") //
+                  (linkIfExists ./Pictures "Pictures");
 
                 sessionVariables = {
                   EDITOR = "vim";
@@ -145,6 +133,15 @@
             }
           ];
         };
+      };
+    in
+    {
+      # Create homeConfigurations for common usernames
+      # Users can use any of these or specify their own
+      homeConfigurations = {
+        # Example configurations - replace with your username
+        long = mkHomeConfiguration "long";
+        yourUsername = mkHomeConfiguration "yourUsername";
       };
 
       # NixOS configuration module
