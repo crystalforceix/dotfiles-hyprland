@@ -6,7 +6,7 @@ A complete Hyprland configuration with Quickshell, custom themes, and essential 
 
 ### Minimum Requirements
 
-- **Distro**: Arch Linux (or Arch-based: Manjaro, EndeavourOS, CachyOS, etc.)
+- **Distro**: Arch Linux (or Arch-based: Manjaro, EndeavourOS, CachyOS, etc.) or NixOS
 
 ### Dependencies
 
@@ -17,7 +17,7 @@ The setup script will automatically install:
 
 ## Installation
 
-### Quick Install
+### For Arch Linux
 
 Clone and run the setup script:
 
@@ -28,6 +28,20 @@ cd dotfiles-hyprland
 chmod +x setup.sh
 ./setup.sh
 ```
+
+### For NixOS
+
+Using Home Manager (recommended):
+
+```bash
+cd ~
+git clone https://github.com/mailong2401/dotfiles-hyprland
+cd dotfiles-hyprland
+# Edit flake.nix and replace "yourUsername"
+nix run home-manager/master -- switch --flake .#yourUsername
+```
+
+For detailed NixOS installation instructions, see [INSTALL_NIX.md](INSTALL_NIX.md)
 
 The script will:
 1. Check sudo permissions
