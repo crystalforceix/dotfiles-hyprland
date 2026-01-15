@@ -84,7 +84,10 @@ sudo pacman -S --needed --noconfirm \
     xdg-desktop-portal-hyprland \
     dunst \
     hyprpaper \
-    jq
+    jq \
+    matugen \
+    starship \
+    fish
 
 # Check and install yay
 if command -v yay &> /dev/null; then
