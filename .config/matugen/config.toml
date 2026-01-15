@@ -1,3 +1,5 @@
+[config]
+version_check = false
 
 [templates.gtk3]
 input_path = './templates/gtk-colors.css'
