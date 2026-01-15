@@ -70,26 +70,26 @@ sudo pacman -Syu --noconfirm
 # Install required packages
 log_info "Installing packages: Hyprland and related tools..."
 sudo pacman -S --needed --noconfirm \
-  hyprland \
-  playerctl \
-  kitty \
-  brightnessctl \
-  swaybg \
-  wl-clipboard \
-  noto-fonts-cjk \
-  thunar \
-  thunar-archive-plugin \
-  grim \
-  slurp \
-  xdg-desktop-portal-hyprland \
-  dunst \
-  hyprpaper \
-  jq \
-  matugen \
-  starship \
-  fish \
-  adw-gtk-theme \
-  zenity
+    hyprland \
+    playerctl \
+    kitty \
+    brightnessctl \
+    swaybg \
+    wl-clipboard \
+    noto-fonts-cjk \
+    thunar \
+    thunar-archive-plugin \
+    grim \
+    slurp \
+    xdg-desktop-portal-hyprland \
+    dunst \
+    hyprpaper \
+    jq \
+    matugen \
+    starship \
+    fish \
+    adw-gtk-theme
+    zenity
 
 # Check and install yay
 if command -v yay &>/dev/null; then
