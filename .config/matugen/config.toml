@@ -22,3 +22,7 @@ output_path = '~/.config/qt6ct/colors/matugen.conf'
 input_path = './templates/kitty-colors.conf'
 output_path = '~/.config/kitty/colors.conf'
 post_hook = 'pkill -SIGUSR1 kitty'
+
+[templates.cartoon]
+input_path = './templates/cartoon.json'
+output_path = '~/.config/quickshell/cartoon-shell/config/themes/matugen.json'

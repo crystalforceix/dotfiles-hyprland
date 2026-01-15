@@ -88,7 +88,7 @@ sudo pacman -S --needed --noconfirm \
     matugen \
     starship \
     fish \
-    adw-gtk3-theme
+    adw-gtk-theme
 
 # Check and install yay
 if command -v yay &> /dev/null; then
